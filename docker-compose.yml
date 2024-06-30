@@ -1,0 +1,31 @@
+version: "3.8"
+services:
+  mf_drawer:
+    build:
+      context: ./mf_drawer
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - microfrontends
+
+  mf_video:
+    build:
+      context: ./mf_video
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3001"
+    networks:
+      - microfrontends
+
+  bff:
+    build:
+      context: ./bff
+      dockerfile: Dockerfile
+    ports:
+      - "3003:3003"
+    networks:
+      - microfrontends
+
+networks:
+  microfrontends:
