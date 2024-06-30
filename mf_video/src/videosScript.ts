@@ -53,13 +53,17 @@ function showVideos(videos: VideoItem[], videosContainer: HTMLElement) {
     videoElement.className = "video";
     videoElement.innerHTML = `
       <h3>${video.snippet.title}</h3>
-      <iframe src="https://www.youtube.com/embed/${
-        video.id.videoId
-      }" frameborder="0" allowfullscreen></iframe>
-      <button class="heart-button" onclick="addFavorite('${
-        video.id.videoId
-      }', '${video.snippet.title.replace(/'/g, "\\'")}')">Favoritar</button>
+      <iframe src="https://www.youtube.com/embed/${video.id.videoId}" frameborder="0" allowfullscreen></iframe>
+      <button class="heart-button">Favoritar</button>
     `;
+
+    const favoriteButton = videoElement.querySelector(".heart-button");
+    if (favoriteButton) {
+      favoriteButton.addEventListener("click", () => {
+        addFavorite(video.id.videoId, video.snippet.title.replace(/'/g, "\\'"));
+      });
+    }
+
     videosContainer.appendChild(videoElement);
   });
 }
