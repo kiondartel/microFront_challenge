@@ -19,8 +19,9 @@ router.get("/videos", (ctx: any) => {
 });
 
 router.get("/favorites", (ctx: any) => {
+  const filePath = path.join(__dirname, "../static", "favorites.html");
   ctx.type = "html";
-  ctx.body = path.join(__dirname, "../static", "index.html");
+  ctx.body = filePath;
 });
 
 app.use(router.routes()).use(router.allowedMethods());
