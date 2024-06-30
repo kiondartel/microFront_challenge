@@ -1,0 +1,102 @@
+:root {
+  --background-color: #f9f9f9;
+  --background-color-body: rgb(240, 238, 236);
+  --header-bg-color: #c4302b;
+  --header-text-color: white;
+  --button-bg-color: #f8f8f8;
+  --button-bg-hover-color: #e8e8e8;
+  --video-bg-color: white;
+  --shadow-color: rgba(0, 0, 0, 0.1);
+
+  /* Pontos de quebra */
+  --breakpoint-xs: 480px; /* Smartphones */
+  --breakpoint-sm: 768px; /* Tablets */
+  --breakpoint-md: 992px; /* Pequenos desktops */
+  --breakpoint-lg: 1200px; /* Grandes desktops */
+}
+body,
+html {
+  font-family: "Roboto", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-color-body);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 95%;
+}
+
+.app-header {
+  background-color: var(--header-bg-color);
+  color: var(--header-text-color);
+  padding: 20px;
+  width: 100%;
+  box-shadow: 0 4px 6px var(--shadow-color);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+}
+
+input[type="text"] {
+  width: 300px;
+  padding: 10px;
+  margin-right: 10px;
+  border: none;
+  border-radius: 2px;
+}
+
+button {
+  background-color: var(--button-bg-color, blue);
+  color: black;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 2px;
+}
+
+button:hover {
+  background-color: var(--button-bg-hover-color, lightblue);
+}
+
+.video-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding: 20px;
+  justify-content: center;
+}
+
+.video {
+  background-color: var(--video-bg-color, lightgray);
+  width: 300px;
+  border: 3px solid white;
+  box-shadow: 0 2px 5px var(--shadow-color, gray);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+iframe {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+}
+
+h3 {
+  padding: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: calc(100% - 20px);
+}
+
+@media (max-width: var(--breakpoint-lg)) {
+  .app-header {
+    flex-direction: column;
+  }
+}
