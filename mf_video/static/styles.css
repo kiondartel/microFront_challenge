@@ -45,6 +45,7 @@ html {
 }
 
 input[type="text"] {
+  outline: none;
   width: 300px;
   padding: 10px;
   margin-right: 10px;
