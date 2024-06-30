@@ -7,6 +7,7 @@
   --button-bg-hover-color: #e8e8e8;
   --video-bg-color: white;
   --shadow-color: rgba(0, 0, 0, 0.1);
+  --notification-bg-color: #008000;
 
   /* Pontos de quebra */
   --breakpoint-xs: 480px; /* Smartphones */
@@ -98,5 +99,28 @@ h3 {
 @media (max-width: var(--breakpoint-lg)) {
   .app-header {
     flex-direction: column;
+  }
+}
+
+.favorite-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  padding: 10px 20px;
+  background-color: var(--notification-bg-color);
+  color: var(--header-text-color);
+  border-radius: 5px;
+  z-index: 1000;
+  opacity: 0.9;
+  animation: fadeOut 8s forwards;
+  box-shadow: 0px 2px 5px var(--shadow-color);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 0;
   }
 }

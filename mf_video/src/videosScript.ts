@@ -20,6 +20,17 @@ async function fetchVideos(
   return data.items;
 }
 
+function showFavoriteNotification() {
+  const notification = document.createElement("div");
+  notification.className = "favorite-notification";
+  notification.textContent = "Vídeo favoritado com sucesso!";
+  document.body.appendChild(notification);
+
+  setTimeout(() => {
+    notification.remove();
+  }, 10000);
+}
+
 async function addFavorite(videoId: string, videoTitle: string) {
   try {
     const response = await fetch("http://localhost:3003/favorites", {
@@ -29,6 +40,7 @@ async function addFavorite(videoId: string, videoTitle: string) {
     });
     const favorites = await response.json();
     console.log("Favorites updated:", favorites);
+    showFavoriteNotification();
   } catch (error) {
     console.error("Failed to toggle favorite:", error);
   }
