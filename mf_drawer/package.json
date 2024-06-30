@@ -1,10 +1,10 @@
 {
   "name": "mf_drawer",
   "version": "1.0.0",
-  "main": "index.ts",
+  "main": "server.ts",
   "scripts": {
     "build": "tsc",
-    "start": "node dist/index.js",
+    "start": "node dist/server.js",
     "test": "jest"
   },
   "dependencies": {
