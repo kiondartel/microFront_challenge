@@ -9,8 +9,9 @@
 * Jest: Para testes
 * Koa: Para lógica do lado do servidor
 
-## Services Used
+## Serviços usados
 * Github
+* Youtube Api
 
 ## Pré-requisitos
 * Docker
