@@ -34,7 +34,7 @@ async function addFavorite(videoId: string, videoTitle: string) {
   }
 }
 
-function showVideos(videos: VideoItem[], videosContainer: HTMLElement) {
+export function showVideos(videos: VideoItem[], videosContainer: HTMLElement) {
   videosContainer.innerHTML = "";
   videos.forEach((video) => {
     const videoElement = document.createElement("div");
