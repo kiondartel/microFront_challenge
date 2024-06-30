@@ -1,6 +1,3 @@
-import dotenv from "dotenv";
-dotenv.config();
-
 // types.ts - Tipos personalizados para uma melhor clareza e reuso
 type VideoItem = {
   id: { videoId: string };
@@ -8,7 +5,7 @@ type VideoItem = {
 };
 
 // api.ts - Funções relacionadas à API
-const apiKey = process.env.YOUTUBE_API_KEY;
+const apiKey = "AIzaSyC7An8yoXEhpo3rWzp7K5_w2W-mId-eUo0";
 
 async function fetchVideos(
   query: string,
