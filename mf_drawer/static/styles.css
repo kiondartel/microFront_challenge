@@ -1,18 +1,31 @@
-body,
-html {
+:root {
+  --primary-bg-color: #f9f9f9;
+  --sidebar-bg-color: #202020;
+  --text-color: white;
+  --link-hover-color: #373737;
+
+  /* Pontos de quebra */
+  --breakpoint-xs: 480px; /* Smartphones */
+  --breakpoint-sm: 768px; /* Tablets */
+  --breakpoint-md: 992px; /* Pequenos desktops */
+  --breakpoint-lg: 1200px; /* Grandes desktops */
+}
+
+html,
+body {
   margin: 0;
   padding: 0;
   font-family: Arial, sans-serif;
   height: 100%;
-  background-color: #f9f9f9;
+  background-color: var(--primary-bg-color);
 }
 
 .sidebar {
   height: 100vh;
   width: 250px;
   position: fixed;
-  background-color: #202020;
-  color: white;
+  background-color: var(--sidebar-bg-color);
+  color: var(--text-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -31,17 +44,17 @@ html {
 .sidebar nav ul li a {
   display: block;
   padding: 12px 20px;
-  color: white;
+  color: var(--text-color);
   text-decoration: none;
   font-size: 16px;
   transition: background-color 0.3s;
 }
 
 .sidebar nav ul li a:hover {
-  background-color: #373737;
+  background-color: var(--link-hover-color);
 }
 
-#content {
+#main {
   margin-left: 250px;
   padding: 20px;
   height: 100vh;
