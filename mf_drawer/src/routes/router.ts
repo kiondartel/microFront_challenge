@@ -1,6 +1,6 @@
 enum Route {
-  Favorites = "favoritos",
   Videos = "videos",
+  Favorites = "favorites.html",
 }
 
 const Styles = {
@@ -41,8 +41,7 @@ const Router = {
   },
 
   loadRouteContent: function (route: Route) {
-    console.log(`navigateTo function called with route: ${route}`);
-    const content = document.getElementById("content");
+    const content = document.getElementById("main");
 
     if (!content) {
       console.error('Element with id "content" not found.');
@@ -52,7 +51,7 @@ const Router = {
     switch (route) {
       case Route.Favorites:
         content.innerHTML = createIframeHTML(
-          "http://localhost:3001/favoritos",
+          "http://localhost:3001/favorites.html",
           Styles
         );
         break;
