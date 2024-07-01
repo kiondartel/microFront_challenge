@@ -9,7 +9,7 @@ const apiKey = "AIzaSyC7An8yoXEhpo3rWzp7K5_w2W-mId-eUo0";
 
 async function fetchVideos(
   query: string,
-  maxResults: number = 8
+  maxResults: number = 10
 ): Promise<VideoItem[]> {
   const url = `https://www.googleapis.com/youtube/v3/search?part=snippet&type=video&maxResults=${maxResults}&q=${query}&key=${apiKey}`;
   const response = await fetch(url);
