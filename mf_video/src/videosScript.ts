@@ -20,10 +20,10 @@ async function fetchVideos(
   return data.items;
 }
 
-function showFavoriteNotification() {
+function showFavoriteNotification(message: string) {
   const notification = document.createElement("div");
   notification.className = "favorite-notification";
-  notification.textContent = "Vídeo favoritado com sucesso!";
+  notification.textContent = message;
   document.body.appendChild(notification);
 
   setTimeout(() => {
@@ -31,18 +31,30 @@ function showFavoriteNotification() {
   }, 10000);
 }
 
-async function addFavorite(videoId: string, videoTitle: string) {
+async function addOrRemoveFavorite(videoId: string, videoTitle: string) {
+  const favoriteExists = await fetch(`http://localhost:3003/favorites`)
+    .then((res) => res.json())
+    .then((data) => data.some((v: { id: string }) => v.id === videoId));
+
+  const method = favoriteExists ? "DELETE" : "POST";
+  const message = favoriteExists
+    ? "Vídeo removido dos favoritos com sucesso!"
+    : "Vídeo favoritado com sucesso!";
+
   try {
     const response = await fetch("http://localhost:3003/favorites", {
-      method: "POST",
+      method: method,
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ id: videoId, title: videoTitle }),
     });
     const favorites = await response.json();
-    console.log("Favorites updated:", favorites);
-    showFavoriteNotification();
+    if (response.ok) {
+      showFavoriteNotification(message);
+    } else {
+      console.error("Falha ao alternar favorito:", favorites.error);
+    }
   } catch (error) {
-    console.error("Failed to toggle favorite:", error);
+    console.error("Falha ao alternar favorito:", error);
   }
 }
 
@@ -60,7 +72,10 @@ function showVideos(videos: VideoItem[], videosContainer: HTMLElement) {
     const favoriteButton = videoElement.querySelector(".heart-button");
     if (favoriteButton) {
       favoriteButton.addEventListener("click", () => {
-        addFavorite(video.id.videoId, video.snippet.title.replace(/'/g, "\\'"));
+        addOrRemoveFavorite(
+          video.id.videoId,
+          video.snippet.title.replace(/'/g, "\\'")
+        );
       });
     }
 
