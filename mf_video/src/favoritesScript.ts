@@ -24,6 +24,11 @@ function showFavorites(favorites: VideoFavoriteItem[], container: HTMLElement) {
       `;
     container.appendChild(videoElement);
   });
+
+  const favoritesCountElement = document.getElementById(
+    "favoritesCount"
+  ) as HTMLElement;
+  favoritesCountElement.textContent = `(${favorites.length})`;
 }
 
 document.addEventListener("DOMContentLoaded", async () => {
