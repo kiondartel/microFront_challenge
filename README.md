@@ -30,7 +30,7 @@
 
 ![Homepage image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/home.png)
 
-### 2- Favoritar Vídeos: Você pode favoritar um vídeo clicando em 'Favoritar'. Ao ser favoritado, uma notificação de sucesso será exibida.
+### 2- Favoritar Vídeos: Você pode favoritar e desfavoritar (caso já esteja favoritado) um vídeo clicando em 'Favoritar'. Ao ser favoritado, uma notificação de sucesso será exibida.
 
 ![Sucess image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/sucess.png)
 
