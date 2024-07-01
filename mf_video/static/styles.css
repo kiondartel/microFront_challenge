@@ -60,6 +60,7 @@ button {
   padding: 10px 20px;
   cursor: pointer;
   border-radius: 2px;
+  align-self: flex-end;
 }
 
 button:hover {
