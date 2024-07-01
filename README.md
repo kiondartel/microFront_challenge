@@ -19,7 +19,7 @@
 
 ## Instalação
 * Clone o repositório para a sua máquina
-* Execute o comando para construir e rodar os contêineres: docker-compose up --build
+* Execute o comando para construir e rodar os contêineres: docker-compose up --build -d ou docker-compose up --build 
 
 ![docker image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/Captura%20de%20tela%20de%202024-06-30%2015-58-55.png)
 
