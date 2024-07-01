@@ -5,7 +5,7 @@ enum Route {
 
 const Styles = {
   width: "100%",
-  height: "100vh",
+  height: "100%",
   border: "none",
 };
 
@@ -14,6 +14,17 @@ function createIframeHTML(
   styles: { width: string; height: string; border: string }
 ): string {
   return `<iframe src="${src}" style="width: ${styles.width}; height: ${styles.height}; border: ${styles.border};"></iframe>`;
+}
+function updateFavoritesCount() {
+  fetch("http://localhost:3003/favorites")
+    .then((response) => response.json())
+    .then((data) => {
+      const favoritesCount = document.getElementById("favoritesCount");
+      if (favoritesCount) {
+        favoritesCount.textContent = `(${data.length})`;
+      }
+    })
+    .catch((error) => console.error("Error fetching favorites:", error));
 }
 
 const Router = {
@@ -34,6 +45,7 @@ const Router = {
       favoritesLink.addEventListener("click", function (e) {
         e.preventDefault();
         Router.loadRouteContent(Route.Favorites);
+        updateFavoritesCount();
       });
     } else {
       console.error("Favorites link not found");
@@ -66,6 +78,7 @@ const Router = {
   init: function () {
     this.setupNavigation();
     this.loadRouteContent(Route.Videos);
+    updateFavoritesCount();
   },
 };
 
