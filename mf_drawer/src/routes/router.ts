@@ -28,6 +28,10 @@ function updateFavoritesCount() {
 }
 
 const Router = {
+  changeURL: function (url: string) {
+    window.history.pushState(null, "", url);
+  },
+
   setupNavigation: function () {
     const videosLink = document.getElementById("videosLink");
     const favoritesLink = document.getElementById("favoritesLink");
@@ -36,6 +40,7 @@ const Router = {
       videosLink.addEventListener("click", function (e) {
         e.preventDefault();
         Router.loadRouteContent(Route.Videos);
+        Router.changeURL("/");
       });
     } else {
       console.error("Videos link not found");
@@ -45,6 +50,7 @@ const Router = {
       favoritesLink.addEventListener("click", function (e) {
         e.preventDefault();
         Router.loadRouteContent(Route.Favorites);
+        Router.changeURL("/favorites.html");
         updateFavoritesCount();
       });
     } else {
@@ -82,4 +88,6 @@ const Router = {
   },
 };
 
-document.addEventListener("DOMContentLoaded", Router.init.bind(Router));
+document.addEventListener("DOMContentLoaded", function () {
+  Router.init();
+});
