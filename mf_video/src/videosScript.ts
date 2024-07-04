@@ -5,7 +5,7 @@ type VideoItem = {
 };
 
 // api.ts - Funções relacionadas à API
-const apiKey = "AIzaSyDBcwy56g_JbKlqQexgJDxk0DXB5mvYmrM";
+const apiKey = "";
 
 async function fetchVideos(
   query: string,
