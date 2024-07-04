@@ -28,12 +28,6 @@
 ## Funcionalidades
 ### 1 - Navegação: Ao iniciar o projeto, será exibida uma barra lateral de navegação e a visualização dos vídeos..
 
-![Homepage image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/home.png)
-
 ### 2- Favoritar Vídeos: Você pode favoritar e desfavoritar (caso já esteja favoritado) um vídeo clicando em 'Favoritar'. Ao ser favoritado, uma notificação de sucesso será exibida.
 
-![Sucess image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/sucess.png)
-
 ### 3- Vídeos Favoritos: Para ver seus vídeos favoritos, basta clicar no item 'Favoritos' no menu lateral. Todos os vídeos favoritados serão listados na tela.
-
-![Favorites image](https://github.com/kiondartel/microFront_challenge/blob/main/bff/public/assets/favoritos.png)
